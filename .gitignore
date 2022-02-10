@@ -1,0 +1,26 @@
+# Documentation
+.idea/
+.tox
+docs/_build/
+.DS_STORE
+.swagger*
+docs/offeredapis/swagger/README.md
+
+# Eclipse
+.checkstyle
+.classpath
+target/
+.sts4-cache
+.project
+.settings
+.pydevproject
+infer-out/
+
+.vscode
+.factorypath
+
+coverage.*
+
+.swagger-codegen-ignore
+.swagger-codegen/
+api/README.md

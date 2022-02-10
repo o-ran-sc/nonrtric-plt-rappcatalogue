@@ -1,0 +1,3 @@
+sphinx
+sphinxcontrib-redoc
+lfdocs-conf
