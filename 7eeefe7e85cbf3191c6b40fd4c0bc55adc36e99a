@@ -16,6 +16,23 @@
       "message": "recheck",
       "revId": "7eeefe7e85cbf3191c6b40fd4c0bc55adc36e99a",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51024933_12bc7032",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2022-02-14T11:10:43Z",
+      "side": 1,
+      "message": "Still no Verify job. \nRef https://gerrit.o-ran-sc.org/r/c/ci-management/+/7723 \n",
+      "revId": "7eeefe7e85cbf3191c6b40fd4c0bc55adc36e99a",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
