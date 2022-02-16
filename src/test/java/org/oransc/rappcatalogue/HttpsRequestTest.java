@@ -53,7 +53,7 @@ import org.springframework.web.client.ResourceAccessException;
     properties = { //
         "server.ssl.key-store=./config/r-app-catalogue-keystore.jks", //
         "server.http-port=0"})
-public class HttpsRequestTest {
+class HttpsRequestTest {
 
     @Value("${server.ssl.key-store-password}")
     private String keyStorePassword; // inject password from config
@@ -68,12 +68,12 @@ public class HttpsRequestTest {
     private AbstractConfigurableWebServerFactory webServerFactory;
 
     @Test
-    public void testSsl() {
+    void testSsl() {
         assertEquals(true, this.webServerFactory.getSsl().isEnabled());
     }
 
     @Test
-    public void rest_OverPlainHttp_GetsBadRequestRequiresTLS() throws Exception {
+    void rest_OverPlainHttp_GetsBadRequestRequiresTLS() throws Exception {
         TestRestTemplate template = new TestRestTemplate();
         ResponseEntity<String> responseEntity =
             template.getForEntity("http://localhost:" + port + "/services", String.class);
@@ -82,7 +82,7 @@ public class HttpsRequestTest {
     }
 
     @Test
-    public void rest_WithoutSSLConfiguration_ThrowsSSLExceptionUnableFindValidCertPath() throws Exception {
+    void rest_WithoutSSLConfiguration_ThrowsSSLExceptionUnableFindValidCertPath() throws Exception {
         TestRestTemplate template = new TestRestTemplate();
 
         ResourceAccessException thrown = assertThrows(ResourceAccessException.class, () -> {
@@ -92,7 +92,7 @@ public class HttpsRequestTest {
     }
 
     @Test
-    public void rest_WithTwoWaySSL_AuthenticatesAndGetsExpectedResponse() throws Exception {
+    void rest_WithTwoWaySSL_AuthenticatesAndGetsExpectedResponse() throws Exception {
 
         SSLContext sslContext = new SSLContextBuilder().loadKeyMaterial(ResourceUtils.getFile(keyStore),
             keyStorePassword.toCharArray(), keyStorePassword.toCharArray()).build();
