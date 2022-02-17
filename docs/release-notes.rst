@@ -101,6 +101,6 @@ E Maintenance Release
 | **Release date**            | 2022-02-09                                        |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
-| **Purpose of the delivery** | Improvements and bug fixes                        |
+| **Purpose of the delivery** | Docker not using root user                        |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
