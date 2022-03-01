@@ -24,7 +24,7 @@ server:
    http-port: 8680
    ssl:
       key-store-type: JKS
-      key-store: /opt/app/r-app-catalogue/etc/cert/keystore.jks
+      key-store: /opt/app/rappcatalogue/etc/cert/keystore.jks
       key-store-password: r-app-catalogue
       key-password: r-app-catalogue
       key-alias: server-cert

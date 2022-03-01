@@ -51,7 +51,7 @@ import org.springframework.web.client.ResourceAccessException;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(
     properties = { //
-        "server.ssl.key-store=./config/r-app-catalogue-keystore.jks", //
+        "server.ssl.key-store=./config/rappcatalogue-keystore.jks", //
         "server.http-port=0"})
 class HttpsRequestTest {
 

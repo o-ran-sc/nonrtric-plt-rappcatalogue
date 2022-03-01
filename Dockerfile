@@ -21,27 +21,27 @@ FROM openjdk:11-jre-slim
 
 ARG JAR
 
-WORKDIR /opt/app/r-app-catalogue
-RUN mkdir -p /var/log/r-app-catalogue
-RUN mkdir -p /opt/app/r-app-catalogue/etc/cert/
+WORKDIR /opt/app/rappcatalogue
+RUN mkdir -p /var/log/rappcatalogue
+RUN mkdir -p /opt/app/rappcatalogue/etc/cert/
 
 EXPOSE 8680 8633
 
-ADD /config/application.yaml /opt/app/r-app-catalogue/config/application.yaml
-ADD /config/r-app-catalogue-keystore.jks /opt/app/r-app-catalogue/etc/cert/keystore.jks
-ADD target/${JAR} /opt/app/r-app-catalogue/r-app-catalogue.jar
+ADD /config/application.yaml /opt/app/rappcatalogue/config/application.yaml
+ADD /config/rappcatalogue-keystore.jks /opt/app/rappcatalogue/etc/cert/keystore.jks
+ADD target/${JAR} /opt/app/rappcatalogue/rappcatalogue.jar
 
 ARG user=nonrtric
 ARG group=nonrtric
 
 RUN groupadd $user && \
     useradd -r -g $group $user
-RUN chown -R $user:$group /opt/app/r-app-catalogue
-RUN chown -R $user:$group /var/log/r-app-catalogue
+RUN chown -R $user:$group /opt/app/rappcatalogue
+RUN chown -R $user:$group /var/log/rappcatalogue
 
 USER ${user}
 
-CMD ["java", "-jar", "/opt/app/r-app-catalogue/r-app-catalogue.jar"]
+CMD ["java", "-jar", "/opt/app/rappcatalogue/rappcatalogue.jar"]
 
 
 

@@ -272,7 +272,7 @@
                 <inherited>false</inherited>
                 <executions>
                     <execution>
-                        <id>generate-r-app-catalogue-image</id>
+                        <id>generate-rappcatalogue-image</id>
                         <phase>package</phase>
                         <goals>
                             <goal>build</goal>
@@ -298,7 +298,7 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>push-r-app-catalogue-image</id>
+                        <id>push-rappcatalogue-image</id>
                         <goals>
                             <goal>build</goal>
                             <goal>push</goal>
