@@ -1,0 +1,5 @@
+---
+distribution_type: maven
+version: 1.1.0
+project: nonrtric-plt-rappcatalogue
+log_dir: nonrtric-plt-rappcatalogue-maven-stage-master/116/
