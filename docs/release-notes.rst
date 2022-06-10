@@ -23,6 +23,9 @@ Version history App Catalogue
 | 2020-12-03 | 1.0.0    | Henrik Andersson | Cherry Release |
 |            |          |                  |                |
 +------------+----------+------------------+----------------+
+| 2022-06-XX | 1.1.0    | Henrik Andersson | F Release      |
+|            |          |                  |                |
++------------+----------+------------------+----------------+
 
 
 Release Data
@@ -89,18 +92,19 @@ Cherry
 E Maintenance Release
 ---------------------
 +-----------------------------+---------------------------------------------------+
-| **Project**                 | Non-RT RIC                                        |
+| **Project**                 | Non-RT RIC App Catalogue                          |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
-| **Repo/commit-ID**          | nonrtric/4df1f9ca4cd1ebc21e0c5ea57bcb0b7ef096d067 |
+| **Repo/commit-ID**          | nonrtric/plt/rappcatalogue                        |
+|                             | 9e9a0eaf5f34a29e08dca3983b3d801921d06e71          |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
-| **Release designation**     | E                                                 |
+| **Release designation**     | F                                                 |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
-| **Release date**            | 2022-02-09                                        |
+| **Release date**            | 2022-06-XX                                        |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
-| **Purpose of the delivery** | Docker not using root user                        |
+| **Purpose of the delivery** | Moved to separate repo.                           |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
