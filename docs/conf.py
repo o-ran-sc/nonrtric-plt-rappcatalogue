@@ -23,3 +23,8 @@ redoc = [
         ]
 
 redoc_uri = 'https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js'
+
+#intershpinx mapping with other projects
+intersphinx_mapping = {}
+
+intersphinx_mapping['nonrtric'] = ('https://docs.o-ran-sc.org/projects/o-ran-sc-nonrtric/en/%s' % branch, None)
