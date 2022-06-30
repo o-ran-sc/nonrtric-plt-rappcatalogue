@@ -15,7 +15,7 @@
 API-Docs
 ========
 
-Here we describe the APIs to access the Non-RT RIC App Catalogue.
+Here we describe the API to access the Non-RT RIC App Catalogue.
 
 
 Non-RT-RIC App Catalogue (Initial)
