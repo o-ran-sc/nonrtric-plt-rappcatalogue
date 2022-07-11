@@ -16,6 +16,41 @@
       "message": "Lets try this for a while to compare. \nCan roll back if needed. ",
       "revId": "78bd8d6f9722b41bb33a36788f969c5dada46ac5",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccab2b2b_96e42788",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2022-07-11T13:46:39Z",
+      "side": 1,
+      "message": "Yes of course. However, I think it works fine as expected. Please refer to the latest link below for a live view.\n\nhttps://docs.o-ran-sc.org/projects/o-ran-sc-nonrtric-plt-rappcatalogue/en/latest/api-docs.html#non-rt-ric-app-catalogue-initial",
+      "parentUuid": "69fe4efd_704535b0",
+      "revId": "78bd8d6f9722b41bb33a36788f969c5dada46ac5",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06874dab_cc171191",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2022-07-11T13:46:39Z",
+      "side": 1,
+      "message": "Replied in line",
+      "revId": "78bd8d6f9722b41bb33a36788f969c5dada46ac5",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
