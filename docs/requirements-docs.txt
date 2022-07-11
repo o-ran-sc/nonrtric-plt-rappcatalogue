@@ -1,3 +1,7 @@
 sphinx
 sphinxcontrib-redoc
 lfdocs-conf
+sphinxcontrib-httpdomain
+sphinxcontrib-openapi==0.6.0
+sphinx-rtd-theme
+recommonmark
