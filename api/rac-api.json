@@ -26,7 +26,16 @@
                                     "items": {
                                         "$ref": "#/components/schemas/service"
                                     }
-                                }
+                                },
+                                "example": [
+                                    {
+                                        "name": "DroneIdentifier",
+                                        "version": "1.0.0",
+                                        "display_name": "Drone Identifier",
+                                        "description": "Detects if a UE is a drone",
+                                        "registrationDate": "2020-11-03"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -48,6 +57,13 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/service"
+                                },
+                                "example": {
+                                    "name": "DroneIdentifier",
+                                    "version": "1.0.0",
+                                    "display_name": "Drone Identifier",
+                                    "description": "Detects if a UE is a drone",
+                                    "registrationDate": "2020-11-03"
                                 }
                             }
                         }
@@ -58,6 +74,10 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/error_information"
+                                },
+                                "example": {
+                                    "detail": "Service not found",
+                                    "status": 404
                                 }
                             }
                         }
@@ -131,6 +151,11 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/inputService"
+                            },
+                            "example": {
+                                "version": "1.0.0",
+                                "display_name": "Drone Identifier",
+                                "description": "Detects if a UE is a drone"
                             }
                         }
                     }
