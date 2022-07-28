@@ -23,6 +23,8 @@ Non-RT-RIC App Catalogue (Initial)
 
 The Service Catalogue provides a way for services to register themselves for other services to discover.
 
+See `App Catalogue API <./rac-api.html>`_ for full details of the API.
+
 The API is also described in Swagger-JSON and YAML:
 
 
@@ -31,7 +33,3 @@ The API is also described in Swagger-JSON and YAML:
    :widths: 10,5, 5
 
    "App Catalogue API", ":download:`link <../api/rac-api.json>`", ":download:`link <../api/rac-api.yaml>`"
-
-.. Generates content from rac-api.json
-.. openapi:: ../api/rac-api.json
-    :examples:
