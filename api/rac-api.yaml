@@ -4,6 +4,9 @@ info:
   description: The Non RT-RIC Service Catalogue provides a way for services to register
     themselves for other services to discover.
   version: 1.0.0
+  license:
+    name: Copyright (C) 2020-2022 Nordix Foundation. Licensed under the Apache License.
+    url: http://www.apache.org/licenses/LICENSE-2.0
 servers:
 - url: /
 paths:
