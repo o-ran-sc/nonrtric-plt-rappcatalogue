@@ -1,0 +1,292 @@
+#  ============LICENSE_START===============================================
+#  Copyright (C) 2022 Nordix Foundation. All rights reserved.
+#  ========================================================================
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#  ============LICENSE_END=================================================
+#
+
+openapi: 3.0.0
+info:
+  title: 'Rapp Catalogue API Enhanced'
+  description: 'The Nonrtric Rapp Catalogue defines API specifications to register/unregister/query generic attibutes of Rapp'
+  version: 1.0.0
+servers:
+  - url: /
+paths:
+  '/rappcatalogue':
+    get:
+      operationId: catalogue_manager.query_all_rapp_ids
+      description: 'Query for all rapp identifiers'
+      tags:
+      - All rapp identifiers
+      responses:
+        200:
+          description: 'Array of all rapp identifiers'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/RappId"
+                minItems: 0
+        429:
+          "$ref": "#/components/responses/429-TooManyRequests"
+        503:
+          "$ref": "#/components/responses/503-ServiceUnavailable"
+
+  '/rappcatalogue/{rappid}':
+    parameters:
+      - name: rappid
+        in: path
+        required: true
+        schema:
+          "$ref": "#/components/schemas/RappId"
+    get:
+      operationId: catalogue_manager.query_rapp_by_id
+      description: 'Query for individual rapp definition'
+      tags:
+      - Individual rapp object
+      responses:
+        200:
+          description: 'The rapp definition schemas'
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RappObject"
+        404:
+          "$ref": "#/components/responses/404-NotFound"
+        429:
+          "$ref": "#/components/responses/429-TooManyRequests"
+        503:
+          "$ref": "#/components/responses/503-ServiceUnavailable"
+
+    put:
+      operationId: catalogue_manager.register_rapp
+      description: 'Register, or update, a rapp definition'
+      tags:
+      - Individual rapp object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/RappObject"
+      responses:
+        200:
+          description: 'The rapp has been updated'
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RappObject"
+        201:
+          description: 'The rapp has been registered'
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/RappObject"
+        400:
+          "$ref": "#/components/responses/400-BadRequest"
+        408:
+          "$ref": "#/components/responses/408-RequestTimeout"
+        429:
+          "$ref": "#/components/responses/429-TooManyRequests"
+        503:
+          "$ref": "#/components/responses/503-ServiceUnavailable"
+        507:
+          "$ref": "#/components/responses/507-InsufficientStorage"
+
+    delete:
+      operationId: catalogue_manager.unregister_rapp
+      description: 'Unregister a rapp from catalogue'
+      tags:
+      - Individual rapp object
+      responses:
+        204:
+          description: 'The rapp definition has been deleted'
+        404:
+          "$ref": "#/components/responses/404-NotFound"
+        408:
+          "$ref": "#/components/responses/408-RequestTimeout"
+        429:
+          "$ref": "#/components/responses/429-TooManyRequests"
+        503:
+          "$ref": "#/components/responses/503-ServiceUnavailable"
+
+  '/rappcatalogue/{rappid}/{servicetype}':
+    parameters:
+      - name: rappid
+        in: path
+        required: true
+        schema:
+          "$ref": "#/components/schemas/RappId"
+    parameters:
+      - name: servicetype
+        in: path
+        required: true
+        schema:
+          "$ref": "#/components/schemas/ServiceType"
+    get:
+      operationId: catalogue_manager.query_api_list_by_rapp_id_and_service_type
+      description: 'Query for all api list by rapp_id and service_type'
+      tags:
+      - All rapp services
+      responses:
+        200:
+          description: 'Array of all services'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ServiceTypeObject"
+                minItems: 0
+        429:
+          "$ref": "#/components/responses/429-TooManyRequests"
+        503:
+          "$ref": "#/components/responses/503-ServiceUnavailable"
+
+  '/rappcatalogue/csar/{rappid}/toscameta':
+    parameters:
+      - name: rappid
+        in: path
+        required: true
+        schema:
+          "$ref": "#/components/schemas/RappId"
+
+    get:
+      operationId: catalogue_manager.query_tosca_meta_content_by_rapp_id
+      description: 'Query TOSCA.meta file content by rapp_id'
+      tags:
+      - TOSCA.meta file content
+      responses:
+        200:
+          description: 'TOSCA.meta details'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/ToscaMeta"
+                minItems: 0
+        400:
+          "$ref": "#/components/responses/400-BadRequest"
+        404:
+          "$ref": "#/components/responses/404-NotFound"
+        429:
+          "$ref": "#/components/responses/429-TooManyRequests"
+        503:
+          "$ref": "#/components/responses/503-ServiceUnavailable"
+
+components:
+  schemas:
+
+    RappObject:
+      description: 'A definition of a rapp, i.e. the schemas for a rapp that is being validated'
+      type: object
+      properties:
+        rappSchema:
+          "$ref": "#/components/schemas/JsonSchema"
+      required:
+        - rappSchema
+
+    ProblemDetails:
+      description: 'A problem detail to carry details in a HTTP response according to RFC 7807'
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: number
+        detail:
+          type: string
+        instance:
+          type: string
+
+    JsonSchema:
+      description: 'A JSON schema'
+      type: object
+
+    RappId:
+      description: 'Rapp identifier assigned when a rapp is registered'
+      type: string
+
+    ServiceType:
+      description: 'Service identifier differantiate whether service is consumed or produced'
+      type: string
+
+    ServiceTypeObject:
+      description: 'A JSON schema'
+      type: object
+
+    ToscaMeta:
+      description: 'TOSCA.meta file content'
+      type: string
+
+  responses:
+    400-BadRequest:
+      description: 'Object in payload not properly formulated or not related to the method'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    404-NotFound:
+      description: 'No resource found at the URI'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    405-MethodNotAllowed:
+      description: 'Method not allowed for the URI'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    408-RequestTimeout:
+      description: 'Request could not be processed in given amount of time'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    409-Conflict:
+      description: 'Request could not be processed in the current state of the resource'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    429-TooManyRequests:
+      description: 'Too many requests have been sent in a given amount of time'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    503-ServiceUnavailable:
+      description: 'The provider is currently unable to handle the request due to a temporary overload'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
+
+    507-InsufficientStorage:
+      description: 'The method could not be performed on the resource because the provider is unable to store the representation needed to successfully complete the request'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"

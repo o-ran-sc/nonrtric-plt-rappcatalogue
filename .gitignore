@@ -24,6 +24,7 @@ coverage.*
 .swagger-codegen-ignore
 .swagger-codegen/
 api/README.md
+*.pyc
 
 # Python virtual env
 venv/

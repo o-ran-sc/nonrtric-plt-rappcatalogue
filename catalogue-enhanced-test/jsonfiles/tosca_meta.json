@@ -1,0 +1,11 @@
+[
+    "TOSCA-Meta-File-Version: 1.0",
+    "CSAR-Version: 1.1",
+    "Created-By: Ericsson Software Technology",
+    "Entry-Definitions: Definitions/example_cnf_vnfd.yaml",
+    "ETSI-Entry-Manifest: example_cnf.mf",
+    "ETSI-Entry-Change-Log: Artifacts/ChangeLog.txt",
+    "ETSI-Entry-Tests: Artifacts/Tests/",
+    "ETSI-Entry-Licenses: Artifacts/Licenses",
+    "ETSI-Entry-Certificate: example_cnf.cert"
+]

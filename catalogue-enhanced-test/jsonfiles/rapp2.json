@@ -1,0 +1,24 @@
+{
+  "supplierName": "ESY",
+  "rappSchema": {
+    "version": "1.0.0",
+    "display_name": "ransliceassurance",
+    "description": "Re-prioritize a RAN slice’s radio resource allocation priority if sufficient throughput cannot be maintained",
+    "csarUrl": "http://localhost:9190/rapp2/csar"
+  },
+  "apiList": [
+    {
+      "serviceType": "invoker",
+      "apiId": "88918c1ccdb75a2da0f284572b66ec2c"
+    },
+    {
+      "serviceType": "provider",
+      "apiId": "84111c1ccdb75a2da0f284572b66e854",
+      "aefProfiles": [
+        {
+          "aefId": "dc76679f940d56c86987f0ba7973df0f"
+        }
+      ]
+    }
+  ]
+}

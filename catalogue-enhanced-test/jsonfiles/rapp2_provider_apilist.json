@@ -1,0 +1,11 @@
+[
+    {
+      "serviceType": "provider",
+      "apiId": "84111c1ccdb75a2da0f284572b66e854",
+      "aefProfiles": [
+        {
+          "aefId": "dc76679f940d56c86987f0ba7973df0f"
+        }
+      ]
+    }
+]
