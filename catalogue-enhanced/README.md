@@ -31,6 +31,7 @@ The overall folder structure is (relative to the location of this README file):
 |api               |The OpenApi yaml |
 |src               |Python source code |
 |certificate       |A self-signed certificate and a key |
+|tests             |Pytest fixture and test setup utility |
 
 The application is being implemented in Python programming language.
 
