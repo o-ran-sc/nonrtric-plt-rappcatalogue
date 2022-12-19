@@ -46,4 +46,4 @@ if len(sys.argv) >= 2 and isinstance(sys.argv[1], int):
 app.add_api('rapp-catalogue-enhanced.yaml')
 
 if __name__ == '__main__':
-  app.run(port=port_number, host="127.0.0.1", threaded=False)
+  app.run(port=port_number, host="0.0.0.0", threaded=False)
