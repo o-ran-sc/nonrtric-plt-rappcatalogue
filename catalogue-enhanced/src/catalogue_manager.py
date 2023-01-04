@@ -20,7 +20,7 @@ import json
 
 from flask import request, Response
 from jsonschema import validate
-from var_declaration import rapp_registry
+from var_declaration import synchronized_rapp_registry
 from zipfile import ZipFile
 from io import TextIOWrapper
 from util import ToscametaFormatChecker
@@ -33,20 +33,22 @@ APPL_PROB_JSON='application/problem+json'
 # API Function: Query for all rapp identifiers
 def query_all_rapp_ids():
 
-  res = list(rapp_registry.keys())
+  allkeys= synchronized_rapp_registry.get_rapps_keys()
+  res= list(allkeys)
   return (res, 200)
 
 
 # API Function: Get a rapp definition
 def query_rapp_by_id(rappid):
 
-  rapp_id = str(rappid)
+  rapp_id= str(rappid)
+  rapp_definition= synchronized_rapp_registry.get_rapp(rapp_id)
 
-  if (rapp_id not in rapp_registry.keys()):
+  if rapp_definition:
+    return Response(json.dumps(rapp_definition), 200, mimetype=APPL_JSON)
+  else:
     pjson=create_problem_json(None, "The rapp does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
-
-  return Response(json.dumps(rapp_registry[rapp_id]), 200, mimetype=APPL_JSON)
 
 
 # API Function: Register, or update, a rapp definition
@@ -61,14 +63,8 @@ def register_rapp(rappid):
     pjson=create_problem_json(None, "The rapp definition is corrupt or missing.", 400, None, rapp_id)
     return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
 
-  return_code = 201
-  if rapp_id in rapp_registry.keys():
-    return_code = 200
-
-  # Register or update rapp definition
-  rapp_registry[rapp_id] = data
-
-  return Response(json.dumps(data), return_code, mimetype=APPL_JSON)
+  response_code= synchronized_rapp_registry.set_rapp(rapp_id, data)
+  return Response(json.dumps(data), response_code, mimetype=APPL_JSON)
 
 
 # API Function: Unregister a rapp from catalogue
@@ -76,14 +72,12 @@ def unregister_rapp(rappid):
 
   rapp_id = str(rappid)
 
-  if (rapp_id not in rapp_registry.keys()):
+  if synchronized_rapp_registry.del_rapp(rapp_id):
+    return Response('', 204, mimetype=APPL_JSON)
+  else:
     pjson = create_problem_json(None, "The rapp definition does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
 
-  # Delete rapp definition
-  del rapp_registry[rapp_id]
-
-  return Response('', 204, mimetype=APPL_JSON)
 
 # API Function: Query api list by rapp_id and service_type: produced or consumed
 def query_api_list_by_rapp_id_and_service_type(rappid, servicetype):
@@ -91,9 +85,9 @@ def query_api_list_by_rapp_id_and_service_type(rappid, servicetype):
   rapp_id = str(rappid)
   service_type = str(servicetype)
 
-  if (rapp_id in rapp_registry.keys()):
+  rapp_definition= synchronized_rapp_registry.get_rapp(rapp_id)
 
-    rapp_definition = rapp_registry[rapp_id]
+  if rapp_definition:
     try:
       arr_api_list = rapp_definition['apiList']
       arr_filtered_api_list = [arr_item for arr_item in arr_api_list if arr_item['serviceType'] == service_type]
@@ -105,32 +99,32 @@ def query_api_list_by_rapp_id_and_service_type(rappid, servicetype):
 
   return ([], 200)
 
+
 # API Function: Validate and return TOSCA.meta file content
 def query_tosca_meta_content_by_rapp_id(rappid):
 
   rapp_id = str(rappid)
 
-  if (rapp_id not in rapp_registry.keys()):
+  if synchronized_rapp_registry.get_rapp(rapp_id):
+    with open_zip_and_filter('/usr/src/app/csar/rapp1/rapp1.csar') as tosca_file:
+      tosca_meta = []
+      while True:
+        line = tosca_file.readline()  # Get next line from file
+        if not line:  # end of file is reached
+          break
+        else:
+          tosca_meta.append(line.strip())
+
+    print('TOSCA.meta content:', tosca_meta)
+    is_valid= validate_tosca_meta_format(tosca_meta)
+
+    if is_valid== True:
+      content= tosca_meta
+      return Response(json.dumps(content), 200, mimetype=APPL_JSON)
+  else:
     pjson=create_problem_json(None, "The rapp does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
 
-  with open_zip_and_filter('/usr/src/app/csar/rapp1/rapp1.csar') as tosca_file:
-    tosca_meta = []
-    while True:
-      line = tosca_file.readline()  # Get next line from file
-      if not line:  # end of file is reached
-        break
-      else:
-        tosca_meta.append(line.strip())
-
-  print('TOSCA.meta content:', tosca_meta)
-  is_valid = validate_tosca_meta_format(tosca_meta)
-
-  if is_valid == True:
-    content = tosca_meta
-    return Response(json.dumps(content), 200, mimetype=APPL_JSON)
-
-  return ([], 200)
 
 # Helper: Open CSAR zip file and returns TOSCA.meta
 def validate_tosca_meta_format(toscameta):

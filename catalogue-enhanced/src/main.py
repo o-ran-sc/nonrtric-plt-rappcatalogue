@@ -18,7 +18,7 @@
 import sys
 
 from flask import Response, Flask
-from var_declaration import app, rapp_registry
+from var_declaration import app, synchronized_rapp_registry
 
 # app var need to be initialized
 import payload_logging
@@ -34,7 +34,7 @@ def test():
 # Delete all rapp definitions
 @app.route('/deleteall', methods=['POST'])
 def delete_all():
-  rapp_registry.clear()
+  synchronized_rapp_registry.clear_rapps()
 
   return Response("All rapp definitions deleted", 200, mimetype=TEXT_PLAIN)
 
