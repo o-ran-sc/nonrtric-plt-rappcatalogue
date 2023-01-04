@@ -15,6 +15,7 @@
 #  ============LICENSE_END=================================================
 #
 
+from threading import RLock
 from maincommon import apipath
 import connexion
 
@@ -22,3 +23,4 @@ import connexion
 app = connexion.App(__name__, specification_dir=apipath)
 
 rapp_registry = {}
+rlock = RLock()

@@ -20,7 +20,7 @@ import json
 
 from flask import request, Response
 from jsonschema import validate
-from var_declaration import rapp_registry
+from var_declaration import rapp_registry, rlock
 from zipfile import ZipFile
 from io import TextIOWrapper
 from util import ToscametaFormatChecker
@@ -66,7 +66,9 @@ def register_rapp(rappid):
     return_code = 200
 
   # Register or update rapp definition
+  rlock.acquire()
   rapp_registry[rapp_id] = data
+  rlock.release()
 
   return Response(json.dumps(data), return_code, mimetype=APPL_JSON)
 
@@ -81,7 +83,9 @@ def unregister_rapp(rappid):
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
 
   # Delete rapp definition
+  rlock.acquire()
   del rapp_registry[rapp_id]
+  rlock.release()
 
   return Response('', 204, mimetype=APPL_JSON)
 
