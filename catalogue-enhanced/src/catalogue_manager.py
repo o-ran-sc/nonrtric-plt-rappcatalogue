@@ -20,7 +20,7 @@ import json
 
 from flask import request, Response
 from jsonschema import validate
-from var_declaration import rapp_registry
+from var_declaration import synchronized_rapp_registry, register_rapp_lock, query_api_list_lock
 from zipfile import ZipFile
 from io import TextIOWrapper
 from util import ToscametaFormatChecker
@@ -33,7 +33,7 @@ APPL_PROB_JSON='application/problem+json'
 # API Function: Query for all rapp identifiers
 def query_all_rapp_ids():
 
-  res = list(rapp_registry.keys())
+  res = list(synchronized_rapp_registry.get_base_keys())
   return (res, 200)
 
 
@@ -42,11 +42,11 @@ def query_rapp_by_id(rappid):
 
   rapp_id = str(rappid)
 
-  if (rapp_id not in rapp_registry.keys()):
+  if (rapp_id not in synchronized_rapp_registry.get_base_keys()):
     pjson=create_problem_json(None, "The rapp does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
 
-  return Response(json.dumps(rapp_registry[rapp_id]), 200, mimetype=APPL_JSON)
+  return Response(json.dumps(synchronized_rapp_registry.base[rapp_id]), 200, mimetype=APPL_JSON)
 
 
 # API Function: Register, or update, a rapp definition
@@ -61,12 +61,17 @@ def register_rapp(rappid):
     pjson=create_problem_json(None, "The rapp definition is corrupt or missing.", 400, None, rapp_id)
     return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
 
-  return_code = 201
-  if rapp_id in rapp_registry.keys():
-    return_code = 200
-
-  # Register or update rapp definition
-  rapp_registry[rapp_id] = data
+  register_rapp_lock.acquire()
+  try:
+    return_code = 201
+    if rapp_id in synchronized_rapp_registry.get_base_keys():
+      return_code = 200
+    # Register or update rapp definition
+    synchronized_rapp_registry.set_rapp(rapp_id, data)
+  except Exception as err:
+    print('An error occured while register rapp:', err)
+  finally:
+    register_rapp_lock.release()
 
   return Response(json.dumps(data), return_code, mimetype=APPL_JSON)
 
@@ -76,12 +81,12 @@ def unregister_rapp(rappid):
 
   rapp_id = str(rappid)
 
-  if (rapp_id not in rapp_registry.keys()):
+  if (rapp_id not in synchronized_rapp_registry.get_base_keys()):
     pjson = create_problem_json(None, "The rapp definition does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
 
   # Delete rapp definition
-  del rapp_registry[rapp_id]
+  synchronized_rapp_registry.del_rapp(rapp_id)
 
   return Response('', 204, mimetype=APPL_JSON)
 
@@ -91,17 +96,22 @@ def query_api_list_by_rapp_id_and_service_type(rappid, servicetype):
   rapp_id = str(rappid)
   service_type = str(servicetype)
 
-  if (rapp_id in rapp_registry.keys()):
-
-    rapp_definition = rapp_registry[rapp_id]
-    try:
-      arr_api_list = rapp_definition['apiList']
-      arr_filtered_api_list = [arr_item for arr_item in arr_api_list if arr_item['serviceType'] == service_type]
-      return (arr_filtered_api_list, 200)
-    except Exception as err:
-      print('An error occured:', err)
-      pjson=create_problem_json(None, "The rapp definition is corrupt or missing.", 400, None, rapp_id)
-      return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
+  query_api_list_lock.acquire()
+  try:
+    if (rapp_id in synchronized_rapp_registry.get_base_keys()):
+      rapp_definition = synchronized_rapp_registry.base[rapp_id]
+      try:
+        arr_api_list = rapp_definition['apiList']
+        arr_filtered_api_list = [arr_item for arr_item in arr_api_list if arr_item['serviceType'] == service_type]
+        return (arr_filtered_api_list, 200)
+      except Exception as err:
+        print('An error occured:', err)
+        pjson=create_problem_json(None, "The rapp definition is corrupt or missing.", 400, None, rapp_id)
+        return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
+  except Exception as err:
+    print('An error occured while query api list:', err)
+  finally:
+    query_api_list_lock.release()
 
   return ([], 200)
 
@@ -110,7 +120,7 @@ def query_tosca_meta_content_by_rapp_id(rappid):
 
   rapp_id = str(rappid)
 
-  if (rapp_id not in rapp_registry.keys()):
+  if (rapp_id not in synchronized_rapp_registry.get_base_keys()):
     pjson=create_problem_json(None, "The rapp does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
 
