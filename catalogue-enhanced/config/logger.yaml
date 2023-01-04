@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -14,26 +14,35 @@
 #  limitations under the License.
 #  ============LICENSE_END=================================================
 #
+version: 1
 
-from threading import RLock
-from maincommon import apipath
-from repository.synchronized_rapp_registry import SychronizedRappRegistry
+disable_existing_loggers: true
 
-import os
-import sys
-import connexion
-import logging
-import logging.config
-import yaml
+formatters:
+  extended:
+    format: '%(asctime)-20s :: %(levelname)-8s :: [%(process)d]%(processName)s :: %(threadName)s[%(thread)d] :: %(pathname)s :: %(lineno)d :: %(message)s'
+  simple:
+    format: "%(asctime)s :: %(name)s :: %(message)s"
 
-def init_logger():
-  with open('/usr/src/app/config/logger.yaml', 'r') as f:
-    config = yaml.safe_load(f.read())
-    logging.config.dictConfig(config)
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    class : logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: extended
+    filename: rapp_manager.log
+    maxBytes: 1024
 
+loggers:
+  dev:
+    handlers: [console, file]
+  prod:
+    handlers: [file]
 
-synchronized_rapp_registry= SychronizedRappRegistry()
-
-#Main app
-app = connexion.App(__name__, specification_dir=apipath)
-
+root:
+  level: DEBUG
+  handlers: [console]

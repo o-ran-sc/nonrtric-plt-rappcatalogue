@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 import sys
 
 from flask import Response, Flask
-from var_declaration import app, rapp_registry
+from var_declaration import app, synchronized_rapp_registry, init_logger
 
 # app var need to be initialized
 import payload_logging
@@ -34,7 +34,7 @@ def test():
 # Delete all rapp definitions
 @app.route('/deleteall', methods=['POST'])
 def delete_all():
-  rapp_registry.clear()
+  synchronized_rapp_registry.clear_rapps()
 
   return Response("All rapp definitions deleted", 200, mimetype=TEXT_PLAIN)
 
@@ -46,4 +46,5 @@ if len(sys.argv) >= 2 and isinstance(sys.argv[1], int):
 app.add_api('rapp-catalogue-enhanced.yaml')
 
 if __name__ == '__main__':
+  init_logger()
   app.run(port=port_number, host="0.0.0.0", threaded=False)
