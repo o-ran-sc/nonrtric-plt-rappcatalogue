@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -15,16 +15,24 @@
 #  ============LICENSE_END=================================================
 #
 
-from threading import RLock
-from maincommon import apipath
-from repository.synchronized_rapp_registry import SychronizedRappRegistry
-
+import logging
+import logging.config
 import os
-import sys
-import connexion
+import yaml
 
-synchronized_rapp_registry= SychronizedRappRegistry()
+DEFAULT_LEVEL= logging.INFO
+LOG_CONFIG_PATH= '/usr/src/app/config/logger.yaml'
 
-#Main app
-app = connexion.App(__name__, specification_dir=apipath)
+def init_logger(log_cfg_path= LOG_CONFIG_PATH):
 
+  if os.path.exists(log_cfg_path):
+    with open(log_cfg_path, 'r') as cfg_file:
+      try:
+        config = yaml.safe_load(cfg_file.read())
+        logging.config.dictConfig(config)
+      except Exception as e:
+        print('Error with log config file: ', e)
+        logging.basicConfig(level= DEFAULT_LEVEL)
+  else:
+    logging.basicConfig(level= DEFAULT_LEVEL)
+    print('Log config file not found, using INFO log configuration instead')

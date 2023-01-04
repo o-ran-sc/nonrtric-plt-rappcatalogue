@@ -29,6 +29,7 @@ COPY nginx.conf nginx.conf
 COPY certificate /usr/src/app/cert
 COPY src src
 COPY csar csar
+COPY config config
 
 ARG user=nonrtric
 ARG group=nonrtric
