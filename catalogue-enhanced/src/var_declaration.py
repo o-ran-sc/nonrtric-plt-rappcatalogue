@@ -15,10 +15,65 @@
 #  ============LICENSE_END=================================================
 #
 
+from threading import RLock
 from maincommon import apipath
 import connexion
+
+class SychronizedRappRegistry:
+
+  def __init__(self):
+    self.lock= RLock()
+    self.base= {}
+
+  def set_rapp(self, rapp_id, data):
+    self.lock.acquire()
+    try:
+      self.base[rapp_id]= data
+    except Exception as err:
+      print('An error occured while set rapp:', err)
+    finally:
+      self.lock.release()
+
+  def del_rapp(self, rapp_id):
+    self.lock.acquire()
+    try:
+      del self.base[rapp_id]
+    except Exception as err:
+      print('An error occured while del rapp:', err)
+    finally:
+      self.lock.release()
+
+  def get_rapp(self, rapp_id):
+    self.lock.acquire()
+    try:
+      return self.base[rapp_id]
+    except Exception as err:
+      print('An error occured while get rapp:', err)
+    finally:
+      self.lock.release()
+
+  def clear_base(self):
+    self.lock.acquire()
+    try:
+      self.base.clear()
+    except Exception as err:
+      print('An error occured while get rapp:', err)
+    finally:
+      self.lock.release()
+
+  def get_base_keys(self):
+    self.lock.acquire()
+    try:
+      return self.base.keys()
+    except Exception as err:
+      print('An error occured while get rapp:', err)
+    finally:
+      self.lock.release()
+
+synchronized_rapp_registry= SychronizedRappRegistry()
+register_rapp_lock= RLock()
+query_api_list_lock= RLock()
 
 #Main app
 app = connexion.App(__name__, specification_dir=apipath)
 
-rapp_registry = {}
