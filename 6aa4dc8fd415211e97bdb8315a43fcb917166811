@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04d72fa2_50c6cdce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "See comments below. \nStill not threadsafe. ",
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7656bce7_b127f659",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "Don\u0027t think this is threadsafe. Does this create a copy of the keys? \nHowever the keys() operation is atomic, so probably ok?",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 12
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e345aa84_618c1c8f",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "as above.",
+      "range": {
+        "startLine": 45,
+        "startChar": 35,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40d745b2_8c90e630",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "perhaps add a timeout - and check for deadlock",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f57d8a4_c2f64ff5",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "Maybe wrap in a \"with\" block instead of explicit lock acquire. \nBetter handles edge cases where the lcok might not b correctly released",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 31
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f902ed2_03a92b3f",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "All calls to rapp-registry need to be synchronised. \nThis iteration is not thread safe. \nKeys (rapp_id) used here might refer to entries be removed by another thread.",
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "155fc285_c8425ec6",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "might throw an error if removed by another thread.",
+      "range": {
+        "startLine": 100,
+        "startChar": 22,
+        "endLine": 100,
+        "endChar": 44
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de25616d_5f0dad96",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "same as above. Not threadsafe",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 83
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2041a7a9_becc8d78",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-05T13:05:35Z",
+      "side": 1,
+      "message": "Since this object is publicly accessible, there is a danger that something else might use this map/dict without locking correctly .. A comment might be needed? \nOr better, wrap rapp-registry in an object where access is always synchronised?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "6aa4dc8fd415211e97bdb8315a43fcb917166811",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
