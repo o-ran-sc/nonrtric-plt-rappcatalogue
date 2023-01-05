@@ -39,6 +39,30 @@
       },
       "revId": "877cf54355a7b946bb9e9c25c0d731108a745887",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ff0c74e_a24f92c6",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-05T16:52:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "285c5134_758c7350",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 0
+      },
+      "revId": "877cf54355a7b946bb9e9c25c0d731108a745887",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
