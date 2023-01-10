@@ -1,0 +1,291 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df3cf0f5_7603d4e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "See comments. ",
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70071087_e8864ab6",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "These locks should be hidden inside the class ... not exposed.",
+      "range": {
+        "startLine": 23,
+        "startChar": 56,
+        "endLine": 23,
+        "endChar": 95
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "964bcdc3_e6795269",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "This should be in a a class method, not here. Then access to the lock is not needed.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcff5530_d7ce77f4",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "This should be in a a class method, not here. Then access to the lock is not needed.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 33
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d871167c_cd18e42d",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "id guess this class should be in a separate file",
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db6053a5_5d040fdb",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "suggestrename to something more decriptive ... e.g. self._rapps",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 13
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b039880b_00975026",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "every acquire should have a timeout, log warning \u0026 retry.",
+      "range": {
+        "startLine": 29,
+        "startChar": 14,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c15d5c93_713eb6ff",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "Should all of these exceptions be re-thrown? \nWill calling code see that the operation succeeded otherwise?",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cec379e4_6a2e23a5",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "might be helpful to include the rAppID in the warning. (maybe its in the err object too ?)",
+      "range": {
+        "startLine": 33,
+        "startChar": 41,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30282ce0_24e2f34d",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "clear",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b7f4d8_32bc58f5",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "rapp keys",
+      "range": {
+        "startLine": 71,
+        "startChar": 40,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5def84_3eb38d23",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "These should not be exposed outside the class. \n... See comment above",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0313fa9b_33929e08",
+        "filename": "catalogue-enhanced/tests/test_sychronized_rapp_registry.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-10T17:56:51Z",
+      "side": 1,
+      "message": "10 is maybe a bit small for a concurrency/synchronization test.",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
