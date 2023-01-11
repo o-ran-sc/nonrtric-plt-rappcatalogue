@@ -16,6 +16,75 @@
       "message": "Thank you for the reviews, please find the new patch set.",
       "revId": "97c028cc6c8769b9f2e6724e8143d0aee0e0c5d7",
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cef6828_8ed2b24a",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-11T21:49:32Z",
+      "side": 1,
+      "message": "Where does this file come from?",
+      "range": {
+        "startLine": 109,
+        "startChar": 31,
+        "endLine": 109,
+        "endChar": 65
+      },
+      "revId": "97c028cc6c8769b9f2e6724e8143d0aee0e0c5d7",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabca485_bafc5b27",
+        "filename": "catalogue-enhanced/src/repository/synchronized_rapp_registry.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-11T21:49:32Z",
+      "side": 1,
+      "message": "This type of spinlock, combined with the sleep below can lead to lock starvation when there is alot of contention, or unnecessary sleeping/blocking when there is low contention. \n\nI think this should be something like \n\nislocked \u003d false; \nwhile ( ! islocked \u0026\u0026 retrycount++ \u003c MAXRETRY)\n    islocked \u003d self.lock.acquire(blocking\u003dtrue,timeout\u003d1.0)       /// 1 sec might be a bit short?\nif(! islocked)\n     log error \u0026 continue.\ntry\n   ...\n  ...\nfinally \n   if(islocked)\n      self.lock.release() ...",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "97c028cc6c8769b9f2e6724e8143d0aee0e0c5d7",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa6611b_cec1a443",
+        "filename": "catalogue-enhanced/src/repository/synchronized_rapp_registry.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-01-11T21:49:32Z",
+      "side": 1,
+      "message": "Perhaps all these print out might be too much. \nUse debug log instead.",
+      "range": {
+        "startLine": 42,
+        "startChar": 10,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "97c028cc6c8769b9f2e6724e8143d0aee0e0c5d7",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     }
   ]
 }
