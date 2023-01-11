@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab6466d7_35afa4a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Thank you for the reviews, please find the new patch set.",
+      "revId": "97c028cc6c8769b9f2e6724e8143d0aee0e0c5d7",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}

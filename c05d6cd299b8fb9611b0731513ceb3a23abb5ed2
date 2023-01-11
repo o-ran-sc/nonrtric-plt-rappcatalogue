@@ -41,6 +41,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e69e50f_a6fb5859",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70071087_e8864ab6",
+      "range": {
+        "startLine": 23,
+        "startChar": 56,
+        "endLine": 23,
+        "endChar": 95
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "964bcdc3_e6795269",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-01-10T17:56:51Z",
       "side": 1,
       "message": "This should be in a a class method, not here. Then access to the lock is not needed.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 32
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9270795_6ac3b1dd",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "964bcdc3_e6795269",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c21e832_f68d866e",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "885768f3_32d2ec2d",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 46
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcff5530_d7ce77f4",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-01-10T17:56:51Z",
       "side": 1,
       "message": "This should be in a a class method, not here. Then access to the lock is not needed.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 33
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17b23605_80b043ab",
+        "filename": "catalogue-enhanced/src/catalogue_manager.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dcff5530_d7ce77f4",
       "range": {
         "startLine": 98,
         "startChar": 0,
@@ -127,6 +223,24 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4dad46_e48e92af",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d871167c_cd18e42d",
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db6053a5_5d040fdb",
@@ -140,6 +254,30 @@
       "writtenOn": "2023-01-10T17:56:51Z",
       "side": 1,
       "message": "suggestrename to something more decriptive ... e.g. self._rapps",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 13
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8431fb5b_59706df0",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "db6053a5_5d040fdb",
       "range": {
         "startLine": 26,
         "startChar": 4,
@@ -173,6 +311,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c554043e_888accb1",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b039880b_00975026",
+      "range": {
+        "startLine": 29,
+        "startChar": 14,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c15d5c93_713eb6ff",
@@ -186,6 +348,30 @@
       "writtenOn": "2023-01-10T17:56:51Z",
       "side": 1,
       "message": "Should all of these exceptions be re-thrown? \nWill calling code see that the operation succeeded otherwise?",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "485e4d7d_8bf0c1db",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c15d5c93_713eb6ff",
       "range": {
         "startLine": 32,
         "startChar": 11,
@@ -219,6 +405,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44c01109_760ddaa8",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cec379e4_6a2e23a5",
+      "range": {
+        "startLine": 33,
+        "startChar": 41,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30282ce0_24e2f34d",
@@ -232,6 +442,30 @@
       "writtenOn": "2023-01-10T17:56:51Z",
       "side": 1,
       "message": "clear",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a883b3c5_6acd5392",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "30282ce0_24e2f34d",
       "range": {
         "startLine": 62,
         "startChar": 36,
@@ -265,6 +499,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36890fff_55fdb96c",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "72b7f4d8_32bc58f5",
+      "range": {
+        "startLine": 71,
+        "startChar": 40,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb5def84_3eb38d23",
@@ -288,6 +546,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06efb83b_b86533e4",
+        "filename": "catalogue-enhanced/src/var_declaration.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fb5def84_3eb38d23",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0313fa9b_33929e08",
@@ -301,6 +583,30 @@
       "writtenOn": "2023-01-10T17:56:51Z",
       "side": 1,
       "message": "10 is maybe a bit small for a concurrency/synchronization test.",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "c05d6cd299b8fb9611b0731513ceb3a23abb5ed2",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9a706c_c114fb1b",
+        "filename": "catalogue-enhanced/tests/test_sychronized_rapp_registry.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-11T15:36:15Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0313fa9b_33929e08",
       "range": {
         "startLine": 35,
         "startChar": 22,
