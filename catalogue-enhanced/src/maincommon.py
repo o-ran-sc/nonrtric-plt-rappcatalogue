@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -16,13 +16,9 @@
 #
 
 import os
-import sys
 
-# Must exist
-apipath = os.environ['APIPATH']
+# Get ACTIVE_LOGGER env variable, otherwise use the default logger profile
+active_logger_profile= os.getenv('ACTIVE_LOGGER', 'prod')
 
-# Make sure the api path for the open api yaml file is set, otherwise exit
-def check_apipath():
-    if (apipath is None):
-        print("Env APIPATH not set. Exiting....")
-        sys.exit(1)
+# Get APIPATH env variable, otherwise use the default path
+apipath= os.getenv('APIPATH', '/usr/src/app/api')

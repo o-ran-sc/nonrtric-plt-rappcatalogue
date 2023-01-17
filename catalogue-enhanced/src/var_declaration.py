@@ -15,16 +15,13 @@
 #  ============LICENSE_END=================================================
 #
 
-from threading import RLock
+import connexion
+
 from maincommon import apipath
 from repository.synchronized_rapp_registry import SychronizedRappRegistry
 
-import os
-import sys
-import connexion
+#Main app
+app= connexion.App(__name__, specification_dir=apipath)
 
 synchronized_rapp_registry= SychronizedRappRegistry()
-
-#Main app
-app = connexion.App(__name__, specification_dir=apipath)
 

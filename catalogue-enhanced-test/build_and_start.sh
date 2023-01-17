@@ -21,11 +21,19 @@
 # Make sure to run container including args as is this script
 
 print_usage() {
-    echo "Usage: ./build_and_start.sh"
+    echo "Usage: ./build_and_start.sh logger-dev|logger-prod"
     exit 1
 }
 
-if [ $# -ge 1 ]; then
+if [ $# -ne 1 ]; then
+    print_usage
+fi
+
+if [ $1 == "logger-dev" ]; then
+    ACTIVE_LOGGER="-e ACTIVE_LOGGER=dev"
+elif  [ $1 == "logger-prod" ]; then
+    ACTIVE_LOGGER="-e ACTIVE_LOGGER=prod"
+else
     print_usage
 fi
 
@@ -42,4 +50,4 @@ echo "Starting rapp catalogue enhanced..."
 echo "PWD path: "$PWD
 
 #Run the container in interactive mode with host networking driver which allows docker to access localhost, unsecure port 9096, secure port 9196
-docker run --network host --rm -it -p 9096:9096 -p 9196:9196 -e ALLOW_HTTP=true --volume "$PWD/certificate:/usr/src/app/cert" --name rappcatalogueenhanced rapp_catalogue_enhanced_image
+docker run --network host --rm -it -p 9096:9096 -p 9196:9196 -e ALLOW_HTTP=true $ACTIVE_LOGGER --volume "$PWD/certificate:/usr/src/app/cert" --name rappcatalogueenhanced rapp_catalogue_enhanced_image
