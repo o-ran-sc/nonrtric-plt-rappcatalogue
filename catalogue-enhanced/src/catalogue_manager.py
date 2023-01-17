@@ -23,7 +23,7 @@ from jsonschema import validate
 from var_declaration import synchronized_rapp_registry
 from zipfile import ZipFile
 from io import TextIOWrapper
-from util import ToscametaFormatChecker
+from repository.tosca_meta import ToscaMeta
 
 # Constsants
 APPL_JSON='application/json'
@@ -115,12 +115,14 @@ def query_tosca_meta_content_by_rapp_id(rappid):
         else:
           tosca_meta.append(line.strip())
 
-    print('TOSCA.meta content:', tosca_meta)
-    is_valid= validate_tosca_meta_format(tosca_meta)
+    try:
+      validate_tosca_meta_format(tosca_meta)
+      return Response(json.dumps(tosca_meta), 200, mimetype=APPL_JSON)
+    except Exception as err:
+      print('An error occured:', err)
+      pjson=create_problem_json(None, err, 512, None, rapp_id)
+      return Response(json.dumps(pjson), 512, mimetype=APPL_PROB_JSON)
 
-    if is_valid== True:
-      content= tosca_meta
-      return Response(json.dumps(content), 200, mimetype=APPL_JSON)
   else:
     pjson=create_problem_json(None, "The rapp does not exist.", 404, None, rapp_id)
     return Response(json.dumps(pjson), 404, mimetype=APPL_PROB_JSON)
@@ -134,16 +136,9 @@ def validate_tosca_meta_format(toscameta):
     csar_tag = split_and_strip(toscameta[1])
     crby_tag = split_and_strip(toscameta[2])
 
-    checker = ToscametaFormatChecker(file_tag, csar_tag, crby_tag)  # util.py: validater
-    result = checker.validate()
-
-    if result == True:  # Log: Validated or NOT
-      print('Validated:', checker)
-    else:
-      print('NOT Validated:', checker)
-    return result
-
-  return False
+    ToscaMeta(file_tag, csar_tag, crby_tag)
+  else:
+    raise ValueError("More lines than expected in Tosca.meta")
 
 # Helper: Splits given string by colon and strip
 def split_and_strip(string):
@@ -159,11 +154,7 @@ def open_zip_and_filter(filename):
       for file_name in file_names:
         if file_name.endswith('TOSCA.meta'):
           return TextIOWrapper(zip_object.open(file_name))  # TextIOWrapper: provides buffered text stream
-
-      pjson=create_problem_json(None, "TOSCA.meta file is corrupt or missing.", 400, None, rapp_id)
-      return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
   except Exception as err:
-    print('An error occured:', err)
     pjson=create_problem_json(None, "The CSAR zip content is corrupt or missing.", 400, None, rapp_id)
     return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
   finally:
@@ -205,5 +196,7 @@ def create_error_response(code):
       return(create_problem_json(None, "Service unavailable", 503, "The provider is currently unable to handle the request due to a temporary overload", None))
     elif code == 507:
       return(create_problem_json(None, "Insufficient storage", 507, "The method could not be performed on the resource because the provider is unable to store the representation needed to successfully complete the request", None))
+    elif code == 512:
+      return(create_problem_json(None, "Tosca.meta not valid", 512, "TOSCA.meta content is not valid", None))
     else:
       return(create_problem_json(None, "Unknown", code, "Not implemented response code", None))

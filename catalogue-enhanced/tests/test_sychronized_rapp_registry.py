@@ -16,13 +16,9 @@
 #
 
 import unittest
-from unittest_setup import setup_env
+
 from threading import Thread
-
-#Setup env and import paths
-setup_env()
-
-from var_declaration import SychronizedRappRegistry
+from repository.synchronized_rapp_registry import SychronizedRappRegistry
 
 class TestSynchronizedRappRegistry(unittest.TestCase):
   """

@@ -15,22 +15,11 @@
 #  ============LICENSE_END=================================================
 #
 
-import logging
-import logging.config
-import os
-import yaml
-
-DEFAULT_LEVEL= logging.INFO
-
-class Logger:
-
-  def __init__(self, log_cfg_path= None):
-    if log_cfg_path and os.path.exists(log_cfg_path):
-      with open(log_cfg_path, 'r') as cfg_file:
-        try:
-          config = yaml.safe_load(cfg_file.read())
-          logging.config.dictConfig(config)
-        except Exception as e:
-          print('Error with log-config file: ', e)
-    else:
-      print('No config file found,  using default logger')
+# pyproject.toml
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src", "config",
+]
+testpaths = [
+    "tests",
+]

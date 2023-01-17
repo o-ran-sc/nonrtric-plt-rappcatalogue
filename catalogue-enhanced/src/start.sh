@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -20,6 +20,14 @@
 # Set path to open api
 export APIPATH=$PWD/api
 echo "APIPATH set to: "$APIPATH
+
+# Set PYTHONPATH for module import
+export PYTHONPATH=$PWD/src
+echo "PYTHONPATH set to: "$PYTHONPATH
+
+# Set WORKDIR for the container
+export WORKDIR=$PWD
+echo "WORKDIR set to: "$WORKDIR
 
 cd src
 
