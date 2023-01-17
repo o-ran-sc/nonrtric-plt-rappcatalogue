@@ -32,7 +32,7 @@ handlers:
     stream: ext://sys.stdout
   file:
     class : logging.handlers.RotatingFileHandler
-    level: INFO
+    level: DEBUG
     formatter: extended
     filename: /tmp/rapp_manager.log
     maxBytes: 10485760 # 10MB
