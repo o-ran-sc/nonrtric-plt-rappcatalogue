@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76952536_e04e7ad7",
+        "filename": "catalogue-enhanced/config/logger.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000201
+      },
+      "writtenOn": "2023-01-17T13:07:02Z",
+      "side": 1,
+      "message": "Should the log level really be DEBUG? If this configuration will only be used for test, then the DEBUG level is ok. But if it will be used for \"production\", then it should not be DEBUG.",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "cd82f505a1ebf8f6882c5c04ad64c847a718a150",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e55182c9_68e50d77",
+        "filename": "catalogue-enhanced/src/main.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000201
+      },
+      "writtenOn": "2023-01-17T13:07:02Z",
+      "side": 1,
+      "message": "Feels unsafe to use an absolute path. Is there no possibility to use a relative path?",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 27
+      },
+      "revId": "cd82f505a1ebf8f6882c5c04ad64c847a718a150",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6cdcb53_0bc276d1",
+        "filename": "catalogue-enhanced/tests/test_log_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000201
+      },
+      "writtenOn": "2023-01-17T13:07:02Z",
+      "side": 1,
+      "message": "Are these necessary since they do not contain any code?",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 8
+      },
+      "revId": "cd82f505a1ebf8f6882c5c04ad64c847a718a150",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
