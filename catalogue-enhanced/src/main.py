@@ -19,13 +19,14 @@ import sys
 
 from flask import Response, Flask
 from var_declaration import app, synchronized_rapp_registry
-from configuration.log_config import init_logger
+from configuration.log_config import Logger
 
 # App var need to be initialized
 import configuration.payload_logging
 
 # Constants
 TEXT_PLAIN='text/plain'
+LOG_CONFIG_PATH= '/usr/src/app/config/logger.yaml'
 
 # Check alive function
 @app.route('/', methods=['GET'])
@@ -47,5 +48,5 @@ if len(sys.argv) >= 2 and isinstance(sys.argv[1], int):
 app.add_api('rapp-catalogue-enhanced.yaml')
 
 if __name__ == '__main__':
-  init_logger()
+  Logger(LOG_CONFIG_PATH)
   app.run(port=port_number, host="0.0.0.0", threaded=False)
