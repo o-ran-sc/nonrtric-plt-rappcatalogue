@@ -15,16 +15,17 @@
 #  ============LICENSE_END=================================================
 #
 
-from threading import RLock
+import connexion
+import logging
+
 from maincommon import apipath
 from repository.synchronized_rapp_registry import SychronizedRappRegistry
 
-import os
-import sys
-import connexion
+log= logging.getLogger('prod')
 
 synchronized_rapp_registry= SychronizedRappRegistry()
 
 #Main app
+log.debug('initializing the connexion for the OpenAPI YAML...')
 app = connexion.App(__name__, specification_dir=apipath)
 

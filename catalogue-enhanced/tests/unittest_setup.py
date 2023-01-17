@@ -38,6 +38,7 @@ def setup_env():
   testdata = cwd+"../../catalogue-enhanced-test/jsonfiles/"
 
   #Env var to setup version and host logging
+  os.environ['WORKDIR'] = cwd
   os.environ['APIPATH'] = cwd+"../api/"
   os.environ['REMOTE_HOSTS_LOGGING'] = "ON"
 

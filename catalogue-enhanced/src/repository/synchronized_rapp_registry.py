@@ -19,16 +19,17 @@ from threading import RLock
 import time
 import logging
 
+log= logging.getLogger('prod')
+
 class SychronizedRappRegistry:
 
   def __init__(self):
     self.lock= RLock()
     self._rapps= {}
-    self.logger= logging.getLogger('dev')
 
   def set_rapp(self, rapp_id, data):
     with self.lock:
-      self.logger.debug('Acquired a lock in set_rapp for the rapp: %s', rapp_id)
+      log.debug('Acquired a lock in set_rapp for the rapp: %s', rapp_id)
       if rapp_id in self._rapps.keys():
         self._rapps[rapp_id]= data
         return 200
@@ -38,24 +39,24 @@ class SychronizedRappRegistry:
 
   def del_rapp(self, rapp_id):
     with self.lock:
-      self.logger.debug('Acquired a lock in del_rapp for the rapp: %s', rapp_id)
+      log.debug('Acquired a lock in del_rapp for the rapp: %s', rapp_id)
       if rapp_id in self._rapps.keys():
         del self._rapps[rapp_id]
         return rapp_id
 
   def get_rapp(self, rapp_id):
     with self.lock:
-      self.logger.debug('Acquired a lock in get_rapp for the rapp: %s', rapp_id)
+      log.debug('Acquired a lock in get_rapp for the rapp: %s', rapp_id)
       if rapp_id in self._rapps.keys():
         return self._rapps[rapp_id]
 
   def clear_rapps(self):
     with self.lock:
-      self.logger.debug('Acquired a lock in clear_rapps')
+      log.debug('Acquired a lock in clear_rapps')
       if self._rapps.keys():
         self._rapps.clear()
 
   def get_rapps_keys(self):
     with self.lock:
-      self.logger.debug('Acquired a lock in get_rapps_keys')
+      log.debug('Acquired a lock in get_rapps_keys')
       return self._rapps.keys()

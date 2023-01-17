@@ -17,12 +17,15 @@
 
 import os
 import sys
+import logging
+
+log= logging.getLogger('prod')
 
 # Must exist
 apipath = os.environ['APIPATH']
 
-# Make sure the api path for the open api yaml file is set, otherwise exit
+# Make sure the api path for the OpenAPI YAML file is set, otherwise exit
 def check_apipath():
-    if (apipath is None):
-        print("Env APIPATH not set. Exiting....")
-        sys.exit(1)
+  if (apipath is None):
+    log.debug("Env APIPATH not set. Exiting....")
+    sys.exit(1)
