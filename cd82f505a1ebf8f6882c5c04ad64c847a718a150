@@ -24,6 +24,30 @@
       "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8817ef9c_b355cc84",
+        "filename": "catalogue-enhanced/config/logger.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-19T09:17:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76952536_e04e7ad7",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "cd82f505a1ebf8f6882c5c04ad64c847a718a150",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e55182c9_68e50d77",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bb1eb34_1c7dc0de",
+        "filename": "catalogue-enhanced/src/main.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-19T09:17:48Z",
+      "side": 1,
+      "message": "I am working on this..",
+      "parentUuid": "e55182c9_68e50d77",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 27
+      },
+      "revId": "cd82f505a1ebf8f6882c5c04ad64c847a718a150",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d6cdcb53_0bc276d1",
         "filename": "catalogue-enhanced/tests/test_log_config.py",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2023-01-17T13:07:02Z",
       "side": 1,
       "message": "Are these necessary since they do not contain any code?",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 8
+      },
+      "revId": "cd82f505a1ebf8f6882c5c04ad64c847a718a150",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05adcce2_a6e41e5b",
+        "filename": "catalogue-enhanced/tests/test_log_config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001815
+      },
+      "writtenOn": "2023-01-19T09:17:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d6cdcb53_0bc276d1",
       "range": {
         "startLine": 33,
         "startChar": 2,
