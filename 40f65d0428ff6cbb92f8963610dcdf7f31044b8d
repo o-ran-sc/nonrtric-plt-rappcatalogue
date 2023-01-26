@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76cd9920_7ca88164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000201
+      },
+      "writtenOn": "2023-01-26T13:17:21Z",
+      "side": 1,
+      "message": "Maybe try to add some automaic way of finding the tests instead of adding them manually? See:\nhttps://stackoverflow.com/questions/3156782/how-to-add-dozen-of-test-cases-to-a-test-suite-automatically-in-python\n",
+      "revId": "40f65d0428ff6cbb92f8963610dcdf7f31044b8d",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
