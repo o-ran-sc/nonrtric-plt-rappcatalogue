@@ -27,7 +27,7 @@ The overall folder structure is (relative to the location of this README file):
 
 | Dir              | Description |
 | ---------------- | ----------- |
-|.                 |Dockerfile, container-tag.yaml, nginx.conf, pyproject.toml, tox.ini and README.md |
+|.                 |Dockerfile, container-tag.yaml, nginx.conf, pyproject.toml, tox.ini, setup.py, and README.md |
 |api               |The OpenApi yaml rapp-catalogue-enhanced.yaml |
 |src               |Python source codes includes sub-directories repository, configuration, and start.sh |
 |certificate       |A self-signed certificate and a key |
@@ -93,12 +93,43 @@ Goto the main directory, 'rappcatalogue/catalogue-enhanced-test'. This folder co
 
 Note that test can be performed both using the nonsecure HTTP port and the secure HTTPS port.
 
+# Building the rApp Catalogue Enhanced
+
 Build and start the rApp catalogue enhanced containers:
 
 ./build_and_start.sh
 
 This will build and start the container in interactive mode. The built container only resides in the local docker repository. When running the rApp Catalogue Enhanced as a container, the defualt ports can be re-mapped to any port on the localhost.
 
-In a second terminal, go to the same folder and run the basic test script, basic_test.sh nonsecure|secure.
+# API Testing of rApp Catalogue Enhanced
 
-This script runs a number of tests towards the rApp Catalogue Enhanced to make sure it works properply.
+In a second terminal, go to the same folder and run the basic test script:
+      basic_test.sh nonsecure|secure.
+
+This script runs a number of API tests towards the rApp Catalogue Enhanced to make sure it works properply.
+
+# Unit Testing of rApp Catalogue Enhanced
+
+In order to run unit test cases, there is no need to build, and start any container. However, Python's venv must exist. You can follow the below steps to have an venv:
+      1- Change current directory to project's root directory that is rappcatalogue.
+      2- Run the commands consequtively:
+            python3 -m venv venv --prompt="rappcatalogue"
+            source venv/bin/activate
+            pip install connexion
+      3- Change current directory to 'catalogue-enhanced/tests/'
+      4- Run the command below:
+            python suite.py
+The suite.py will detect existing unit test cases, and run them all.
+
+# Installing the pip distribution of rApp Catalogue Enhanced
+
+It is also possible to have a pip distro of rApp catalogue. In order to get install in your venv, you have to first install a venv mentioned in Unit Testing of rApp.
+
+Then, you can follow the below steps:
+      1- Change current directory to 'rappcatalogue/catalogue-enhanced' where you can find setup.py
+      2- Run the command:
+            pip install .
+
+This will build the rApp catalogue on your local.
+
+
