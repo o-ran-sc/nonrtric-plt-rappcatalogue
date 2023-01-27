@@ -32,9 +32,6 @@ class TestSynchronizedRappRegistry(unittest.TestCase):
       # add to the dict
       self.synch_registry.set_rapp(i, 'rapp'+str(i))
 
-  def tearDown(self):
-    pass
-
   def test_synch_registry_setup_size(self):
     self.assertEqual(100, len(self.synch_registry._rapps))
 

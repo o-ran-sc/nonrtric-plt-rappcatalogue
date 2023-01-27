@@ -92,7 +92,7 @@ def query_api_list_by_rapp_id_and_service_type(rappid, servicetype):
       arr_api_list = rapp_definition['apiList']
       arr_filtered_api_list = [arr_item for arr_item in arr_api_list if arr_item['serviceType'] == service_type]
       return (arr_filtered_api_list, 200)
-    except Exception as err:
+    except Exception:
       pjson=create_problem_json(None, "The rapp definition is corrupt or missing.", 400, None, rapp_id)
       return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
 
@@ -152,7 +152,7 @@ def open_zip_and_filter(filename):
       for file_name in file_names:
         if file_name.endswith('TOSCA.meta'):
           return TextIOWrapper(zip_object.open(file_name))  # TextIOWrapper: provides buffered text stream
-  except Exception as err:
+  except Exception:
     pjson=create_problem_json(None, "The CSAR zip content is corrupt or missing.", 400, None, rapp_id)
     return Response(json.dumps(pjson), 400, mimetype=APPL_PROB_JSON)
   finally:
