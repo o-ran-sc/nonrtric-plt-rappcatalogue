@@ -14,3 +14,7 @@ htmlcov/
 
 # Python virtual env
 venv/
+
+# Local Sonarqube scan folder
+.scannerwork/
+

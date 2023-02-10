@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -15,10 +15,11 @@
 #  ============LICENSE_END=================================================
 #
 
-import os
-
-# Get ACTIVE_LOGGER env variable, otherwise use the default logger profile
-active_logger_profile= os.getenv('ACTIVE_LOGGER', 'prod')
-
-# Get APIPATH env variable, otherwise use the default path
-apipath= os.getenv('APIPATH', '/usr/src/app/api')
+# pyproject.toml
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src", "config",
+]
+testpaths = [
+    "tests",
+]

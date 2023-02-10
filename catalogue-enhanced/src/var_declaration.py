@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -15,10 +15,13 @@
 #  ============LICENSE_END=================================================
 #
 
-from maincommon import apipath
 import connexion
 
-#Main app
-app = connexion.App(__name__, specification_dir=apipath)
+from maincommon import apipath
+from repository.synchronized_rapp_registry import SychronizedRappRegistry
 
-rapp_registry = {}
+#Main app
+app= connexion.App(__name__, specification_dir=apipath)
+
+synchronized_rapp_registry= SychronizedRappRegistry()
+

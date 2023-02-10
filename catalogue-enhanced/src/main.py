@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -16,15 +16,21 @@
 #
 
 import sys
+import os
 
 from flask import Response, Flask
-from var_declaration import app, rapp_registry
+from var_declaration import app, synchronized_rapp_registry
+from configuration.log_config import Logger
 
-# app var need to be initialized
-import payload_logging
+# App var need to be initialized
+import configuration.payload_logging
 
 # Constants
 TEXT_PLAIN='text/plain'
+LOG_CONFIG_REL_PATH= '/config/logger.yaml'
+
+# Base path for the container as working directory
+WORKDIR= os.environ['WORKDIR']
 
 # Check alive function
 @app.route('/', methods=['GET'])
@@ -34,7 +40,7 @@ def test():
 # Delete all rapp definitions
 @app.route('/deleteall', methods=['POST'])
 def delete_all():
-  rapp_registry.clear()
+  synchronized_rapp_registry.clear_rapps()
 
   return Response("All rapp definitions deleted", 200, mimetype=TEXT_PLAIN)
 
@@ -42,8 +48,14 @@ port_number = 9696
 if len(sys.argv) >= 2 and isinstance(sys.argv[1], int):
     port_number = sys.argv[1]
 
-#Import base RESTFul API functions from Open API
+# Import base RESTFul API functions from Open API
 app.add_api('rapp-catalogue-enhanced.yaml')
 
 if __name__ == '__main__':
+
+  if WORKDIR is not None:
+    Logger(WORKDIR+LOG_CONFIG_REL_PATH)
+  else:
+    Logger()
+
   app.run(port=port_number, host="0.0.0.0", threaded=False)

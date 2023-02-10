@@ -290,3 +290,10 @@ components:
         application/problem+json:
           schema:
             "$ref": "#/components/schemas/ProblemDetails"
+
+    512-ToscaMetaNotValid:
+      description: 'TOSCA.meta content is not valid'
+      content:
+        application/problem+json:
+          schema:
+            "$ref": "#/components/schemas/ProblemDetails"
