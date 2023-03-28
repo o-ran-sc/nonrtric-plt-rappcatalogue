@@ -17,8 +17,24 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============LICENSE_END=========================================================
 #
-FROM openjdk:11-jre-slim
+#Get JDK & shrink it to equivalent to a JRE
+FROM openjdk:17-jdk as jre-build
+RUN $JAVA_HOME/bin/jlink \
+   --verbose \
+   --add-modules ALL-MODULE-PATH \
+   --strip-debug \
+   --no-man-pages \
+   --no-header-files \
+   --compress=2 \
+   --output /customjre
 
+# Use debian base image (same as openjdk uses)
+FROM debian:11-slim
+
+#Copy JRE from the jre-base image
+ENV JAVA_HOME=/jre
+ENV PATH=${JAVA_HOME}/bin:${PATH}
+COPY --from=jre-build /customjre $JAVA_HOME
 ARG JAR
 
 WORKDIR /opt/app/rappcatalogue
