@@ -1,5 +1,5 @@
 #  ============LICENSE_START===============================================
-#  Copyright (C) 2020-2022 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2020-2023 Nordix Foundation. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -17,79 +17,95 @@
 
 openapi: 3.0.0
 info:
-  title: rAPP Catalogue API
   description: The Non RT-RIC Service Catalogue provides a way for services to register
     themselves for other services to discover.
+  title: rAPP Catalogue API
   version: 1.0.0
 servers:
 - url: /
 paths:
   /services:
     get:
-      tags:
-      - rAPP Catalogue API
-      summary: Services
+      deprecated: false
       operationId: getServices
       responses:
         "200":
-          description: Services
           content:
             application/json:
               schema:
-                type: array
                 items:
                   $ref: '#/components/schemas/service'
-      deprecated: false
-  /services/{serviceName}:
-    get:
+                type: array
+          description: Services
+      summary: Services
       tags:
       - rAPP Catalogue API
-      summary: Individual Service
-      operationId: getIndividualService
+  /services/{serviceName}:
+    delete:
+      deprecated: false
+      operationId: deleteIndividualService
       parameters:
-      - name: serviceName
-        in: path
-        description: serviceName
-        required: true
-        style: simple
+      - example: DroneIdentifier
         explode: false
+        in: path
+        name: serviceName
+        required: true
         schema:
           type: string
+        style: simple
+      responses:
+        "204":
+          description: Service deleted
+      summary: Remove a Service from the catalogue
+      tags:
+      - rAPP Catalogue API
+    get:
+      deprecated: false
+      operationId: getIndividualService
+      parameters:
+      - description: serviceName
         example: DroneIdentifier
+        explode: false
+        in: path
+        name: serviceName
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
-          description: Service
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/service'
+          description: Service
         "404":
-          description: Service is not found
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_information'
-      deprecated: false
-    put:
+          description: Service is not found
+      summary: Individual Service
       tags:
       - rAPP Catalogue API
-      summary: Create or update a Service
+    put:
+      deprecated: false
       operationId: putIndividualService
       parameters:
-      - name: serviceName
-        in: path
-        required: true
-        style: simple
+      - example: DroneIdentifier
         explode: false
+        in: path
+        name: serviceName
+        required: true
         schema:
           type: string
-        example: DroneIdentifier
+        style: simple
       requestBody:
-        description: Service to create/update
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/inputService'
+        description: Service to create/update
         required: true
       responses:
         "200":
@@ -99,100 +115,90 @@ paths:
           headers:
             Location:
               description: URL to the created Service
-              style: simple
               explode: false
               schema:
                 type: string
+              style: simple
         "400":
-          description: Provided service is not correct
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/error_information'
               example:
                 detail: "Service is missing required property: version"
                 status: 400
-      deprecated: false
-    delete:
+              schema:
+                $ref: '#/components/schemas/error_information'
+          description: Provided service is not correct
+      summary: Create or update a Service
       tags:
       - rAPP Catalogue API
-      summary: Remove a Service from the catalogue
-      operationId: deleteIndividualService
-      parameters:
-      - name: serviceName
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-        example: DroneIdentifier
-      responses:
-        "204":
-          description: Service deleted
-      deprecated: false
 components:
   schemas:
     inputService:
-      title: inputService
-      required:
-      - version
-      type: object
+      description: A Service to register
       properties:
         version:
-          type: string
           description: Version of the Service
           example: 1.0.0
-        display_name:
           type: string
+        display_name:
           description: Display name for the Service
           example: Drone Identifier
-        description:
           type: string
+        description:
           description: Description of the Service
           example: Detects if a UE is a drone
-      description: A Service to register
+          type: string
+      required:
+      - version
+      title: inputService
+      type: object
     service:
-      title: service
+      description: A Service
+      example:
+        name: DroneIdentifier
+        registrationDate: 2020-11-03
+        description: Detects if a UE is a drone
+        display_name: Drone Identifier
+        version: 1.0.0
+      properties:
+        name:
+          description: Unique identifier of the Service
+          example: DroneIdentifier
+          type: string
+        version:
+          description: Version of the Service
+          example: 1.0.0
+          type: string
+        display_name:
+          description: Display name for the Service
+          example: Drone Identifier
+          type: string
+        description:
+          description: Description of the Service
+          example: Detects if a UE is a drone
+          type: string
+        registrationDate:
+          description: Date when the Service was registered in the catalogue
+          example: 2020-11-03
+          type: string
       required:
       - name
       - registrationDate
       - version
+      title: service
       type: object
-      properties:
-        name:
-          type: string
-          description: Unique identifier of the Service
-          example: DroneIdentifier
-        version:
-          type: string
-          description: Version of the Service
-          example: 1.0.0
-        display_name:
-          type: string
-          description: Display name for the Service
-          example: Drone Identifier
-        description:
-          type: string
-          description: Description of the Service
-          example: Detects if a UE is a drone
-        registrationDate:
-          type: string
-          description: Date when the Service was registered in the catalogue
-          example: 2020-11-03
-      description: A Service
     error_information:
-      title: error_information
-      type: object
+      description: Problem as defined in https://tools.ietf.org/html/rfc7807
       properties:
         detail:
-          type: string
           description: A human-readable explanation specific to this occurrence of
             the problem.
           example: Service not found
+          type: string
         status:
-          type: integer
           description: The HTTP status code for this occurrence of the problem.
-          format: int32
           example: 404
-      description: Problem as defined in https://tools.ietf.org/html/rfc7807
+          format: int32
+          type: integer
+      title: error_information
+      type: object
