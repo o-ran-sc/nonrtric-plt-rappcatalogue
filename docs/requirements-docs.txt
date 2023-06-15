@@ -1,3 +1,4 @@
 sphinx
 sphinxcontrib-redoc
 lfdocs-conf
+urllib3~=1.26.15
