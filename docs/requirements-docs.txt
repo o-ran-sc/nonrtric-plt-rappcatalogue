@@ -1,4 +1,8 @@
 sphinx
 sphinxcontrib-redoc
 lfdocs-conf
+<<<<<<< HEAD   (5f6536 Roll version after release nonrtric-plt-rappcatalogue:1.2.1)
+=======
+docutils < 0.17
+>>>>>>> CHANGE (08d000 Docs: Update release notes)
 urllib3~=1.26.15
