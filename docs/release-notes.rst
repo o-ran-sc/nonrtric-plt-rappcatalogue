@@ -1,11 +1,10 @@
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. http://creativecommons.org/licenses/by/4.0
-.. Copyright (C) 2021 Nordix
+.. Copyright (C) 2021-2023 Nordix
 
 =============
 Release-Notes
 =============
-
 
 This document provides the release notes for the Non-RT RIC App Catalogue.
 
@@ -34,6 +33,9 @@ Version history App Catalogue
 +------------+----------+------------------+----------------+
 | 2023-02-14 | 1.0.2    | Yennifer Chacon  | G Maintenance  |
 |            |          |                  | Release        |
++------------+----------+------------------+----------------+
+| 2023-06-16 | 1.2.0    | John Keeney      | H Release      |
+|            |          |                  |                |
 +------------+----------+------------------+----------------+
 
 
@@ -172,5 +174,26 @@ G Maintenance Release
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
 | **Purpose of the delivery** | Improvements and test for enhanced version        |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+
+H Release
+---------
++-----------------------------+---------------------------------------------------+
+| **Project**                 | Non-RT RIC App Catalogue                          |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric/plt/rappcatalogue                        |
+|                             | d99ed12b101c22fbdbe64dedcea2172aaf451a1a          |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Release designation**     | H                                                 |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Release date**            | 2023-06-16                                        |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-rappcatalogue:1.2.0                  |
+|                             |    Update to JDK 17 & Springboot 3                |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
