@@ -33,6 +33,7 @@ linkcheck_ignore = [
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
+    'sphinxcontrib.redoc',
 ]
 
 redoc = [
