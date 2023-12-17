@@ -2,6 +2,7 @@
 
 #  ============LICENSE_START===============================================
 #  Copyright (C) 2023 Nordix Foundation. All rights reserved.
+#  Copyright (C) 2023 OpenInfra Foundation Europe. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -20,10 +21,8 @@
 from setuptools import setup
 
 setup(name='rappcatalogue-enhanced',
-      version='1.0.0',
+      version='1.1.0',
       description='The O-RAN Non-RT RIC rApp Catalogue Enhanced provides an OpenApi 3.0 REST API for rApp services to register/unregister themselves and discover other services',
-      maintainer='Halil Cakal',
-      maintainer_email='halil.cakal@est.tech',
       url='https://gerrit.o-ran-sc.org/r/admin/repos/nonrtric/plt/rappcatalogue,general',
       license='Apache License, Version 2.0',
       platforms='any',
