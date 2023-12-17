@@ -1,13 +1,14 @@
 .. This work is licensed under a Creative Commons Attribution 4.0 International License.
 .. SPDX-License-Identifier: CC-BY-4.0
-.. Copyright (C) 2021 Nordix
+.. Copyright (C) 2021-2013 Nordix
+.. Copyright (C) 2021 OpenInfra Foundation Europe
 
 Developer Guide
 ===============
 
 This document provides a quickstart for developers of the Non-RT RIC App Catalogue.
 
-Additional developer guides are available on the `O-RAN SC NONRTRIC Developer wiki <https://wiki.o-ran-sc.org/display/RICNR/Release+F>`_.
+Additional developer guides are available on the `O-RAN SC NONRTRIC Developer wiki <https://wiki.o-ran-sc.org/display/RICNR/Release+I>`_.
 
 See the README.md file in the Gerrit repo for more details how to run the component.
 
