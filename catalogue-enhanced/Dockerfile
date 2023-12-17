@@ -15,12 +15,9 @@
 #  ============LICENSE_END=================================================
 #
 
-FROM python:3.8-slim-buster
-
-RUN pip install connexion[swagger-ui]
-
-#install nginx and curl
+FROM python:3.10-slim-buster
 RUN apt-get update && apt-get install -y nginx=1.14.* nginx-extras curl
+RUN pip install  Flask==2.2.5 connexion[swagger-ui,flask]==2.14.2
 
 WORKDIR /usr/src/app
 
