@@ -1,6 +1,7 @@
 ## License
 
 Copyright (C) 2022-2023 Nordix Foundation.
+Copyright (C) 2023 OpenInfra Foundation Europe.
 Licensed under the Apache License, Version 2.0 (the "License")
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,7 +22,7 @@ The O-RAN Non-RT RIC rApp Catalogue Enhanced module supports GET, PUT and DELETE
 
 |Yaml file                    |     Version         |
 |-----------------------------|-------------------- |
-|rapp-catalogue-enhanced.yaml |      1.0.0          |
+|rapp-catalogue-enhanced.yaml |      1.2.0          |
 
 The overall folder structure is (relative to the location of this README file):
 

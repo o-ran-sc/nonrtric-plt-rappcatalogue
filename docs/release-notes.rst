@@ -12,8 +12,8 @@ This document provides the release notes for the Non-RT RIC App Catalogue.
    :depth: 1
    :local:
 
-Version history App Catalogue
-=================================
+Version history rApp Catalogue & rApp Catalogue Enhanced
+========================================================
 
 +------------+----------+------------------+----------------+
 | **Date**   | **Ver.** | **Author**       | **Comment**    |
@@ -163,7 +163,7 @@ G Maintenance Release
 | **Project**                 | Non-RT RIC App Catalogue                          |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
-| **Repo/commit-ID**          | nonrtric/plt/rappcatalogue                        |
+| **Repo/commit-ID**          | nonrtric-plt-rappcatalogue-enhanced:1.0.2         |
 |                             | f6314546c2e7c5992882fff9756ddf510151c338          |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
@@ -195,5 +195,26 @@ H Release
 +-----------------------------+---------------------------------------------------+
 | **Purpose of the delivery** | nonrtric-plt-rappcatalogue:1.2.0                  |
 |                             |    Update to JDK 17 & Springboot 3                |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+
+I Release
+---------
++-----------------------------+---------------------------------------------------+
+| **Project**                 | Non-RT RIC App Catalogue-Enhanced                 |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Repo/commit-ID**          | nonrtric-plt-rappcatalogue-enhanced               |
+|                             |    c8890f7f4dfaca51762e04b24999ab0ef1a1c72e       |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Release designation**     | I                                                 |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Release date**            | 2023-12-17                                        |
+|                             |                                                   |
++-----------------------------+---------------------------------------------------+
+| **Purpose of the delivery** | nonrtric-plt-rappcatalogue-enhanced:1.1.0         |
+|                             |    Update version of Flask 3PP                    |
 |                             |                                                   |
 +-----------------------------+---------------------------------------------------+
