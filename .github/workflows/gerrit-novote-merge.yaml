@@ -83,6 +83,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
+          projectBaseDir: catalogue-enhanced
           args: >
             -Dsonar.build.sourceEncoding=UTF-8
             -Dsonar.organization=o-ran-sc
