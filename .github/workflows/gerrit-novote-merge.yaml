@@ -96,9 +96,35 @@ jobs:
             -Dsonar.sources=catalogue-enhanced
             -Dsonar.verbose=true
 
+  call-maven-sonarcloud-scan:
+    needs: notify
+    # yamllint disable-line rule:line-length
+    uses: lfit/releng-reusable-workflows/.github/workflows/composed-maven-sonar-cloud.yaml@main
+    with:
+      GERRIT_BRANCH: ${{ inputs.GERRIT_BRANCH }}
+      GERRIT_CHANGE_ID: ${{ inputs.GERRIT_CHANGE_ID }}
+      GERRIT_CHANGE_NUMBER: ${{ inputs.GERRIT_CHANGE_NUMBER }}
+      GERRIT_CHANGE_URL: ${{ inputs.GERRIT_CHANGE_URL }}
+      GERRIT_EVENT_TYPE: ${{ inputs.GERRIT_EVENT_TYPE }}
+      GERRIT_PATCHSET_NUMBER: ${{ inputs.GERRIT_PATCHSET_NUMBER }}
+      GERRIT_PATCHSET_REVISION: ${{ inputs.GERRIT_PATCHSET_REVISION }}
+      GERRIT_PROJECT: ${{ inputs.GERRIT_PROJECT }}
+      GERRIT_REFSPEC: ${{ inputs.GERRIT_REFSPEC }}
+      ENV_SECRETS: "{}"
+      JDK_VERSION: "17"
+      SONAR_PROJECT_KEY: "nonrtric_plt_rappcatalogue"
+      SONAR_ORG: "o-ran-sc"
+      SONAR_ARGS: >
+        -Dsonar.sources=src/main
+        -Dsonar.test.inclusions=**/*.java,**/*.kt
+        -Dsonar.tests=src/test
+        -Dsonar.verbose=true
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   report-status:
     if: ${{ always() }}
-    needs: [notify, call-sonarcloud-scan]
+    needs: [notify, call-sonarcloud-scan, call-maven-sonarcloud-scan]
     runs-on: ubuntu-latest
     steps:
       - name: Get workflow conclusion
