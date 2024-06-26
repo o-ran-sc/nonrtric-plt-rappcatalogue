@@ -1,10 +1,10 @@
 ---
 distribution_type: container
-container_release_tag: 1.1.0
+container_release_tag: 1.2.0
 container_pull_registry: nexus3.o-ran-sc.org:10004
 container_push_registry: nexus3.o-ran-sc.org:10002
 project: nonrtric
-ref: c8890f7f4dfaca51762e04b24999ab0ef1a1c72e
+ref: 1e900dd3dd80c7073fc77e8e5930db535a73ea76
 containers:
     - name: nonrtric-plt-rappcatalogue-enhanced
-      version: 1.1.0
+      version: 1.2.0
