@@ -44,13 +44,6 @@ Version history rApp Catalogue & rApp Catalogue Enhanced
 |            | 1.2.0    |                  |                |
 +------------+----------+------------------+----------------+
 
-2023-12-17  
-2023-12-17                                        |
-|                             |                                                   |
-+-----------------------------+---------------------------------------------------+
-| **Purpose of the delivery** | nonrtric-plt-rappcatalogue-enhanced:1.1.0
-
-
 Release Data
 ============
 
