@@ -1,5 +1,16 @@
 # O-RAN-SC Non-RT RIC rAPP Catalogue
 
+![Status: Deprecated](https://img.shields.io/badge/status-deprecated-red)
+![Status: Experimental](https://img.shields.io/badge/CVE%20Support-none-lightgrey)
+
+> [!CAUTION]
+> **Deprecated**
+>
+> This repository is no longer actively maintained or supported.
+>
+> Please refer to the [o-ran-sc/nonrtric-plt-rappmanager](https://github.com/o-ran-sc/nonrtric-plt-rappmanager) repository for the actively maintained rApp Manager and rApps.
+
+
 The O-RAN Non-RT RIC rApp Catalogue provides an OpenApi 3.0 REST API for services to register themselves and discover
 other services.
 
@@ -13,7 +24,8 @@ To start the application run:
 
 ## License
 
-Copyright (C) 2020 Nordix Foundation. All rights reserved.
+Copyright (C) 2020-2023 Nordix Foundation. All rights reserved.
+Copyright 2023-2025 OpenInfra Foundation Europe. All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

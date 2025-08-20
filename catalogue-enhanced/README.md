@@ -1,7 +1,7 @@
 ## License
 
 Copyright (C) 2022-2023 Nordix Foundation.
-Copyright (C) 2023 OpenInfra Foundation Europe.
+Copyright (C) 2023-2025 OpenInfra Foundation Europe.
 Licensed under the Apache License, Version 2.0 (the "License")
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,6 +15,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 # O-RAN-SC Non-RT RIC rApp Catalogue Enhanced
+
+![Status: Deprecated](https://img.shields.io/badge/status-deprecated-red)
+![Status: Experimental](https://img.shields.io/badge/CVE%20Support-none-lightgrey)
+
+> [!CAUTION]
+> **Deprecated**
+>
+> This repository is no longer actively maintained or supported.
+>
+> Please refer to the [o-ran-sc/nonrtric-plt-rappmanager](https://github.com/o-ran-sc/nonrtric-plt-rappmanager) repository for the actively maintained rApp Manager and rApps.
 
 The O-RAN Non-RT RIC rApp Catalogue Enhanced provides an OpenApi 3.0 REST API for services to register/unregister themselves and discover other services.
 
