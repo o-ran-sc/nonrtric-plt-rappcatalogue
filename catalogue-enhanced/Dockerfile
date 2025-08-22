@@ -1,6 +1,6 @@
 #  ============LICENSE_START===============================================
 #  Copyright (C) 2022-2023 Nordix Foundation. All rights reserved.
-#  Copyright (C) 2023 OpenInfra Foundation Europe. All rights reserved.
+#  Copyright (C) 2023-2025 OpenInfra Foundation Europe. All rights reserved.
 #  ========================================================================
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -17,6 +17,11 @@
 #
 
 FROM python:3.10-slim-buster
+RUN sed -i 's|deb.debian.org/debian|archive.debian.org/debian|g' /etc/apt/sources.list \
+ && sed -i '/security.debian.org/d' /etc/apt/sources.list \
+ && echo "deb http://archive.debian.org/debian-security buster/updates main" >> /etc/apt/sources.list \
+ && apt-get update
+
 RUN apt-get update && apt-get install -y nginx=1.14.* nginx-extras curl
 RUN pip install  Flask==2.2.5 connexion[swagger-ui,flask]==2.14.2
 
