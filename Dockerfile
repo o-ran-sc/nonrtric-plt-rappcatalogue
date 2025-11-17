@@ -1,6 +1,7 @@
 #
 # ============LICENSE_START=======================================================
-#  Copyright (C) 2020 Nordix Foundation.
+#  Copyright (C) 2020-2023 Nordix Foundation.
+#  Copyright (C) 2023-2025 OpenInfra Foundation Europe. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +19,9 @@
 # ============LICENSE_END=========================================================
 #
 #Get JDK & shrink it to equivalent to a JRE
-FROM openjdk:17-jdk as jre-build
+FROM nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17 AS jre-build
+RUN yum install -y binutils
+
 RUN $JAVA_HOME/bin/jlink \
    --verbose \
    --add-modules ALL-MODULE-PATH \
@@ -28,8 +31,8 @@ RUN $JAVA_HOME/bin/jlink \
    --compress=2 \
    --output /customjre
 
-# Use debian base image (same as openjdk uses)
-FROM debian:11-slim
+# Use debian base image
+FROM nexus3.o-ran-sc.org:10001/debian:11-slim
 
 #Copy JRE from the jre-base image
 ENV JAVA_HOME=/jre
@@ -58,7 +61,3 @@ RUN chown -R $user:$group /var/log/rappcatalogue
 USER ${user}
 
 CMD ["java", "-jar", "/opt/app/rappcatalogue/rappcatalogue.jar"]
-
-
-
-
