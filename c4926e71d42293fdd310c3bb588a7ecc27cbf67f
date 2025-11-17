@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19867efc_3962dce0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001877
+      },
+      "writtenOn": "2025-11-17T17:25:27Z",
+      "side": 1,
+      "message": "This should be merged alone. The parent change in the relation chain should be rebased on this for the build to be successful.",
+      "revId": "c4926e71d42293fdd310c3bb588a7ecc27cbf67f",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ]
+}
