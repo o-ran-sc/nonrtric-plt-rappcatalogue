@@ -1,0 +1,9 @@
+Verified+1: ORAN Required GHA <releng+oran.required.gha@linuxfoundation.org>
+Code-Review+2: John Keeney <john.keeney@est.tech>
+Verified+1: o-ran-sc release <collab-it+o-ran-sc-release@linuxfoundation.org>
+Submitted-by: John Keeney <john.keeney@est.tech>
+Submitted-at: Tue, 18 Nov 2025 10:38:32 +0000
+Reviewed-on: https://gerrit.o-ran-sc.org/r/c/nonrtric/plt/rappcatalogue/+/15285
+Comments-Total: 1
+Project: nonrtric/plt/rappcatalogue
+Branch: refs/heads/master
