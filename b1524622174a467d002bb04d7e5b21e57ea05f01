@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52db11e4_9261c5f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2025-12-15T15:38:32Z",
+      "side": 1,
+      "message": "Will not re-release. Function is Deprecated \u0026 this change add no significant functional improvement. \nThis change would only affect devs doing new builds. \nExisting images still works OK. (even if very old)",
+      "revId": "b1524622174a467d002bb04d7e5b21e57ea05f01",
+      "serverId": "84e4e190-e623-4c37-9eda-58b1937c1b53"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
