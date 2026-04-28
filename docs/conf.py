@@ -28,26 +28,17 @@ linkcheck_ignore = [
     'http://localhost.*',
     'http://127.0.0.1.*',
     'https://gerrit.o-ran-sc.org.*',
-    './rac-api.html', #Generated file that doesn't exist at link check.
 ]
 
-extensions = [
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.autosectionlabel',
-    'sphinxcontrib.redoc',
-]
+extensions = ['sphinxcontrib.openapi', 'sphinx.ext.intersphinx', 'sphinx.ext.autosectionlabel']
 
-redoc = [
-            {
-                'name': 'RAC API',
-                'page': 'rac-api',
-                'spec': '../api/rac-api.json',
-                'embed': True,
-            }
-        ]
-
-redoc_uri = 'https://cdn.jsdelivr.net/npm/redoc@latest/bundles/redoc.standalone.js'
-
+# sphinxcontrib-openapi synthesises HTTP request/response examples
+# whose bodies (e.g. enum literal values, free-form 'string'
+# placeholders) Pygments' http lexer rejects. The extension already
+# falls back to relaxed-mode lexing, but the warnings are promoted to
+# errors under sphinx-build -W. Suppress them since the rendered
+# output is correct.
+suppress_warnings = ['misc.highlighting_failure']
 #intershpinx mapping with other projects
 intersphinx_mapping = {}
 

@@ -13,3 +13,4 @@ Non-RT RIC App Catalogue
    ./developer-guide.rst
    ./api-docs.rst
    ./release-notes.rst
+   ./rac-api.rst
